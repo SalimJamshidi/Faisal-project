@@ -145,7 +145,19 @@ a {
 }
 
 .men-card {
-  background: linear-gradient(145deg, #293325, #1a2119 72%);
+  background-image:
+    linear-gradient(rgb(10 15 11 / 48%), rgb(10 15 11 / 48%)),
+    url("images/alpha.m.jpeg");
+  background-position: center 25%;
+  background-size: cover;
+}
+
+.women-card {
+  background-image:
+    linear-gradient(rgb(10 15 11 / 48%), rgb(10 15 11 / 48%)),
+    url("images/Designer%20(5).png");
+  background-position: center top;
+  background-size: cover;
 }
 
 .plan-card::before {
