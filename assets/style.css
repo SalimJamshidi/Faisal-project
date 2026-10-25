@@ -97,6 +97,14 @@ a {
   text-align: center;
 }
 
+.intro:not(.gallery-intro) {
+  background-image:
+    linear-gradient(rgb(10 15 11 / 62%), rgb(10 15 11 / 62%)),
+    url("images/salimj.jpeg");
+  background-position: center;
+  background-size: cover;
+}
+
 .eyebrow,
 .card-kicker,
 .card-number,
