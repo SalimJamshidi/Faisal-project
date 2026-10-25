@@ -33,10 +33,14 @@ a {
 
 /* Center the logo and navigation in the site header. */
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: grid;
   justify-items: center;
   gap: 18px;
   padding: 16px 24px 24px;
+  background: var(--page);
   border-bottom: 1px solid rgb(255 255 255 / 8%);
 }
 
@@ -141,9 +145,36 @@ a {
 
 /* Two-column layout for the workout plan cards. */
 .plans {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
+  gap: 4px;
+  margin-top: 16px;
+}
+
+.plans::before {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  width: min(42vw, 420px);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(194 243 107 / 32%),
+    transparent
+  );
+  box-shadow: 0 0 12px rgb(194 243 107 / 15%);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%);
+  transition: opacity 900ms ease;
+}
+
+.plans.is-in-view::before,
+.plans.is-hovered::before {
+  opacity: 1;
 }
 
 /* Workout card surfaces, backgrounds, and hover treatment. */
@@ -459,7 +490,7 @@ a {
 
   .plans {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 4px;
   }
 
   .plan-card {

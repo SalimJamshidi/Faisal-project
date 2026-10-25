@@ -69,6 +69,50 @@ $(function () {
       });
   }
 
+  // Reveal the soft divider as the plans approach or when hovered.
+  const plans = $(".plans");
+
+  if ("IntersectionObserver" in window && plans.length) {
+    const plansObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            $(entry.target).addClass("is-in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -30px 0px", threshold: 0.05 }
+    );
+
+    plans.each(function () {
+      plansObserver.observe(this);
+    });
+  } else if (plans.length) {
+    const checkPlansVisibility = () => {
+      plans.each(function () {
+        const bounds = this.getBoundingClientRect();
+        if (bounds.top < window.innerHeight && bounds.bottom > 0) {
+          $(this).addClass("is-in-view");
+          $(window).off("scroll resize", checkPlansVisibility);
+        }
+      });
+    };
+
+    $(window).on("scroll resize", checkPlansVisibility);
+    checkPlansVisibility();
+  }
+
+  if (supportsHover) {
+    plans
+      .on("mouseenter", function () {
+        $(this).addClass("is-hovered");
+      })
+      .on("mouseleave", function () {
+        $(this).removeClass("is-hovered");
+      });
+  }
+
   // Give touch users feedback, then follow the selected plan link.
   $(".plan-card").on("click", function (event) {
     if (
