@@ -5,6 +5,37 @@ $(function () {
     $("body")
       .css("opacity", 0)
       .animate({ opacity: 1 }, 450);
+
+    $(".intro h1, .intro-copy").each(function (index) {
+      $(this)
+        .css("opacity", 0)
+        .delay(index * 160)
+        .animate({ opacity: 1 }, 850);
+    });
+
+    const revealItems = $(
+      ".plan-card, .about-panel, .gallery-item, .access-panel, .plan-overview, .workout-day"
+    );
+
+    if ("IntersectionObserver" in window && revealItems.length) {
+      revealItems.css("opacity", 0);
+
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              $(entry.target).animate({ opacity: 1 }, 750);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -40px 0px", threshold: 0.12 }
+      );
+
+      revealItems.each(function () {
+        revealObserver.observe(this);
+      });
+    }
   }
 
   const supportsHover = window.matchMedia("(hover: hover) and (pointer: fine)");
