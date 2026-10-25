@@ -101,7 +101,7 @@ a {
   background-image:
     linear-gradient(rgb(10 15 11 / 62%), rgb(10 15 11 / 62%)),
     url("images/salimj.jpeg");
-  background-position: center;
+  background-position: center 28%;
   background-size: cover;
 }
 
@@ -156,7 +156,7 @@ a {
   justify-content: space-between;
   padding: 25px 28px;
   border: 1px solid rgb(255 255 255 / 9%);
-  border-radius: 18px;
+  border-radius: 0;
   background: linear-gradient(145deg, #243128, #18211a 72%);
   box-shadow: 0 16px 40px rgb(0 0 0 / 16%);
   transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
@@ -165,7 +165,7 @@ a {
 .men-card {
   background-image:
     linear-gradient(rgb(10 15 11 / 48%), rgb(10 15 11 / 48%)),
-    url("images/alpha.m.jpeg");
+    url("images/getup.jpeg");
   background-position: center 25%;
   background-size: cover;
 }
@@ -209,17 +209,21 @@ a {
 /* Workout card labels, headings, and decorative number. */
 .card-number {
   position: relative;
+  top: -6px;
   z-index: 1;
   color: #c0c9bc;
   font-size: 10px;
 }
 
 .card-content {
+  flex: 1;
   position: relative;
   z-index: 1;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
+  justify-content: center;
+  padding: 16px 0 54px;
 }
 
 .card-kicker {
@@ -238,6 +242,7 @@ a {
 .card-link {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 12px;
   margin-top: 23px;
   color: #e2e8de;
@@ -245,8 +250,31 @@ a {
   font-weight: 600;
 }
 
+.card-benefits {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .card-link span[aria-hidden="true"] {
   color: var(--accent);
+}
+
+.journey-button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 13px;
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+  background: rgb(16 23 17 / 92%);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .card-decoration {
@@ -408,6 +436,10 @@ a {
 
 /* Stack content and adjust spacing on narrow screens. */
 @media (max-width: 640px) {
+  .intro:not(.gallery-intro) {
+    background-position: center 45%;
+  }
+
   .site-header {
     padding: 23px 20px;
   }
@@ -452,6 +484,10 @@ a {
 
 /* Use a two-column gallery on medium-width screens. */
 @media (min-width: 641px) and (max-width: 900px) {
+  .intro:not(.gallery-intro) {
+    background-position: center 35%;
+  }
+
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
