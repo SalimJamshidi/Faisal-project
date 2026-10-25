@@ -279,6 +279,70 @@ a {
   font-weight: 700;
 }
 
+.access-panel {
+  max-width: 700px;
+  margin: clamp(48px, 10vh, 100px) auto;
+  padding: clamp(28px, 6vw, 56px);
+  border: 1px solid rgb(255 255 255 / 9%);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #243128, #18211a 72%);
+  box-shadow: 0 16px 40px rgb(0 0 0 / 16%);
+  text-align: center;
+}
+
+.access-panel .eyebrow {
+  margin-bottom: 16px;
+}
+
+.access-panel h1 {
+  max-width: 540px;
+  margin: 0 auto 18px;
+  font-size: clamp(27px, 5vw, 38px);
+  letter-spacing: -0.045em;
+  line-height: 1.15;
+}
+
+.access-panel > p:not(.eyebrow) {
+  max-width: 510px;
+  margin: 0 auto;
+  color: #dce3d8;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.access-panel > p:not(.eyebrow) + p {
+  margin-top: 10px;
+}
+
+.access-button {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 26px;
+  padding: 0 24px;
+  border: 1px solid var(--accent);
+  border-radius: 9px;
+  background: var(--accent);
+  color: var(--page);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.access-button:hover,
+.access-button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgb(194 243 107 / 20%);
+}
+
+.access-button:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
