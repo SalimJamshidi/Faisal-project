@@ -1,7 +1,9 @@
+/* Use predictable sizing for every element. */
 * {
   box-sizing: border-box;
 }
 
+/* Shared colors for the dark fitness theme. */
 :root {
   color-scheme: dark;
   --page: #101711;
@@ -11,6 +13,7 @@
   --accent: #c2f36b;
 }
 
+/* Base page background, typography, and text color. */
 body {
   margin: 0;
   min-width: 320px;
@@ -22,11 +25,13 @@ body {
   font-family: Inter, "Helvetica Neue", Arial, sans-serif;
 }
 
+/* Keep links visually integrated with the design. */
 a {
   color: inherit;
   text-decoration: none;
 }
 
+/* Center the logo and navigation in the site header. */
 .site-header {
   display: grid;
   justify-items: center;
@@ -35,6 +40,7 @@ a {
   border-bottom: 1px solid rgb(255 255 255 / 8%);
 }
 
+/* Navigation link layout and interaction states. */
 .site-nav {
   display: flex;
   width: min(100%, 1060px);
@@ -53,6 +59,7 @@ a {
   color: var(--accent);
 }
 
+/* Brand logo and accent mark styling. */
 .brand {
   display: inline-flex;
   align-items: center;
@@ -79,6 +86,7 @@ a {
   color: var(--accent);
 }
 
+/* Centered page content and opening introduction. */
 .page-content {
   width: min(100% - 48px, 1060px);
   margin: 0 auto;
@@ -93,7 +101,6 @@ a {
 .card-kicker,
 .card-number,
 .page-note {
-  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.16em;
 }
@@ -101,6 +108,7 @@ a {
 .eyebrow {
   margin: 0 0 17px;
   color: var(--accent);
+  font-size: 11px;
 }
 
 .intro h1 {
@@ -123,12 +131,14 @@ a {
   line-height: 1.7;
 }
 
+/* Two-column layout for the workout plan cards. */
 .plans {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
 }
 
+/* Workout card surfaces, backgrounds, and hover treatment. */
 .plan-card {
   position: relative;
   display: flex;
@@ -188,6 +198,7 @@ a {
   box-shadow: 0 22px 50px rgb(0 0 0 / 27%);
 }
 
+/* Workout card labels, headings, and decorative number. */
 .card-number {
   position: relative;
   z-index: 1;
@@ -253,6 +264,7 @@ a {
   padding-bottom: 38px;
 }
 
+/* About page biography panel. */
 .about-panel {
   max-width: 760px;
   margin: 0 auto;
@@ -279,6 +291,7 @@ a {
   font-weight: 700;
 }
 
+/* Plan page access message and purchase button. */
 .access-panel {
   max-width: 700px;
   margin: clamp(48px, 10vh, 100px) auto;
@@ -343,6 +356,7 @@ a {
   outline-offset: 3px;
 }
 
+/* Responsive photo gallery grid and captions. */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -384,6 +398,7 @@ a {
   font-weight: 600;
 }
 
+/* Stack content and adjust spacing on narrow screens. */
 @media (max-width: 640px) {
   .site-header {
     padding: 23px 20px;
@@ -427,12 +442,14 @@ a {
   }
 }
 
+/* Use a two-column gallery on medium-width screens. */
 @media (min-width: 641px) and (max-width: 900px) {
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+/* Reduce transitions for visitors who prefer less motion. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

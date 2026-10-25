@@ -1,6 +1,10 @@
 $(function () {
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Respect reduced-motion preferences before starting animations.
+  const prefersReducedMotion = window
+    .matchMedia("(prefers-reduced-motion: reduce)")
+    .matches;
 
+  // Fade in the page intro and content as it enters the viewport.
   if (!prefersReducedMotion) {
     $("body")
       .css("opacity", 0)
@@ -14,7 +18,7 @@ $(function () {
     });
 
     const revealItems = $(
-      ".plan-card, .about-panel, .gallery-item, .access-panel, .plan-overview, .workout-day"
+      ".plan-card, .about-panel, .gallery-item, .access-panel"
     );
 
     if ("IntersectionObserver" in window && revealItems.length) {
@@ -38,10 +42,15 @@ $(function () {
     }
   }
 
-  const supportsHover = window.matchMedia("(hover: hover) and (pointer: fine)");
-  const supportsTouch = window.matchMedia("(hover: none), (pointer: coarse)");
+  // Add the card hover treatment only on precise-pointer devices.
+  const supportsHover = window
+    .matchMedia("(hover: hover) and (pointer: fine)")
+    .matches;
+  const supportsTouch = window
+    .matchMedia("(hover: none), (pointer: coarse)")
+    .matches;
 
-  if (!prefersReducedMotion && supportsHover.matches) {
+  if (!prefersReducedMotion && supportsHover) {
     $("<style>")
       .text(`
         .plan-card.js-plan-hover {
@@ -60,9 +69,10 @@ $(function () {
       });
   }
 
+  // Give touch users feedback, then follow the selected plan link.
   $(".plan-card").on("click", function (event) {
     if (
-      !supportsTouch.matches ||
+      !supportsTouch ||
       event.isDefaultPrevented() ||
       event.button !== 0 ||
       event.metaKey ||
