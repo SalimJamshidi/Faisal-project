@@ -553,3 +553,19 @@ a {
     transition-duration: 0.01ms !important;
   }
 }
+/* ... ALL YOUR EXISTING CSS CODE STAYS HERE ... */
+
+/* ✅ ✅ PASTE THIS PART RIGHT HERE AT THE BOTTOM ✅ ✅ */
+
+.plan-card.react-plan-hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgb(194 243 107 / 35%);
+  box-shadow: 0 22px 50px rgb(0 0 0 / 27%);
+  transition: all 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plan-card.react-plan-hover {
+    transform: none;
+  }
+}
