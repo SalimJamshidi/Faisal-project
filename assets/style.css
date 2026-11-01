@@ -569,3 +569,48 @@ a {
     transform: none;
   }
 }
+.exercises-section {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: rgba(0,0,0,0.2);
+  border-radius: 12px;
+}
+
+.exercises-section h2 {
+  text-align: center;
+  color: #f97316;
+  margin-bottom: 2rem;
+}
+
+#exercisesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.exercise-card {
+  padding: 1.2rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.exercise-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: #f97316;
+  text-transform: capitalize;
+}
+
+.exercise-card img {
+  width: 100%;
+  border-radius: 6px;
+  margin-top: 0.8rem;
+}
+
+
+
+
+
+
+
+
