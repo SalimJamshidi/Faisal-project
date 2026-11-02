@@ -248,3 +248,82 @@ document.addEventListener('DOMContentLoaded', showExercisesOnPage);
 
 
 
+
+
+// ==========================================
+// 💪 ALPHA FEMALE — Legs & Core Exercises + Search
+// ==========================================
+
+// 🔍 Search Exercises
+async function searchExercises(searchTerm) {
+  try {
+    const res = await fetch(`${API_BASE}/exercises/search?search=${encodeURIComponent(searchTerm)}&limit=12`);
+    const data = await res.json();
+    return data.data || [];
+  } catch (err) {
+    console.error("Search error:", err);
+    return [];
+  }
+}
+
+// 🦾 Get Exercises by Body Part
+async function getByBodyPart(bodyPart) {
+  try {
+    const res = await fetch(`${API_BASE}/exercises/bodyparts?bodyParts=${bodyPart}&limit=6`);
+    const data = await res.json();
+    return data.data || [];
+  } catch (err) {
+    console.error("Error:", err);
+    return [];
+  }
+}
+
+// 🖥️ Display Exercises
+function displayExercises(exercises, containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  if (!exercises.length) {
+    container.innerHTML = '<p class="text-center">No exercises found 😊</p>';
+    return;
+  }
+
+  exercises.forEach(ex => {
+    container.innerHTML += `
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          ${ex.gifUrl ? `<img src="${ex.gifUrl}" class="card-img-top" alt="${ex.name}" style="height: 180px; object-fit: cover;">` : ''}
+          <div class="card-body">
+            <h5 class="card-title">${ex.name}</h5>
+            <p class="card-text small mb-1"><strong>Target:</strong> ${(ex.targetMuscles || []).join(', ') || 'N/A'}</p>
+            <p class="card-text small"><strong>Equipment:</strong> ${(ex.equipments || []).join(', ') || 'N/A'}</p>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+}
+
+// 🔎 Run Search
+async function doSearch() {
+  const input = document.getElementById('exercise-search');
+  if (!input) return;
+  
+  const term = input.value.trim();
+  if (!term) return;
+  
+  const results = await searchExercises(term);
+  displayExercises(results, "female-exercises");
+}
+
+// 🚀 Load on Page Ready
+document.addEventListener("DOMContentLoaded", async () => {
+  if (document.getElementById("female-exercises")) {
+    const legs = await getByBodyPart("legs");
+    const core = await getByBodyPart("waist");
+    const allExercises = [...legs, ...core];
+    displayExercises(allExercises, "female-exercises");
+  }
+});
