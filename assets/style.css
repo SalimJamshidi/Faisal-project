@@ -134,6 +134,7 @@ a {
   background-size: center cover;
 }
 
+/* Shared small labels, section headings, and page notes. */
 .eyebrow,
 .card-kicker,
 .card-number,
@@ -398,11 +399,6 @@ a {
   margin-top: 18px;
 }
 
-.about-panel strong {
-  color: var(--accent);
-  font-weight: 700;
-}
-
 /* Plan page access message and purchase button. */
 .access-panel {
   max-width: 700px;
@@ -468,7 +464,7 @@ a {
   outline-offset: 3px;
 }
 
-/* Responsive photo gallery grid and captions. */
+/* Responsive photo gallery grid, captions, and intro spacing. */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -578,62 +574,3 @@ a {
     transition-duration: 0.01ms !important;
   }
 }
-/* ... ALL YOUR EXISTING CSS CODE STAYS HERE ... */
-
-/* ✅ ✅ PASTE THIS PART RIGHT HERE AT THE BOTTOM ✅ ✅ */
-
-.plan-card.react-plan-hover {
-  transform: translateY(-4px) scale(1.01);
-  border-color: rgb(194 243 107 / 35%);
-  box-shadow: 0 22px 50px rgb(0 0 0 / 27%);
-  transition: all 0.3s ease;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .plan-card.react-plan-hover {
-    transform: none;
-  }
-}
-.exercises-section {
-  margin: 3rem 0;
-  padding: 2rem;
-  background: rgba(0,0,0,0.2);
-  border-radius: 12px;
-}
-
-.exercises-section h2 {
-  text-align: center;
-  color: #f97316;
-  margin-bottom: 2rem;
-}
-
-#exercisesList {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.exercise-card {
-  padding: 1.2rem;
-  background: rgba(255,255,255,0.05);
-  border-radius: 8px;
-  border: 1px solid rgba(249, 115, 22, 0.2);
-}
-
-.exercise-card h3 {
-  margin: 0 0 0.5rem 0;
-  color: #f97316;
-  text-transform: capitalize;
-}
-
-.exercise-card img {
-  width: 100%;
-  border-radius: 6px;
-  margin-top: 0.8rem;
-}
-
-
-
-
-
-

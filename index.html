@@ -27,6 +27,7 @@
 
     <main class="page-content">
       <style>
+        /* Enable smooth in-page scrolling and reveal content as it enters view. */
         html:has(#home-content) {
           scroll-behavior: smooth;
         }
@@ -53,6 +54,7 @@
           transform: translateY(0);
         }
 
+        /* Shared homepage hero panel and typography. */
         #home-content .home-hero {
           position: relative;
           overflow: hidden;
@@ -127,6 +129,7 @@
           line-height: 1.7;
         }
 
+        /* Skill and project cards use the shared dark panels and hover lift. */
         #home-content .skill-card,
         #home-content .project-card {
           height: 100%;
@@ -220,6 +223,7 @@
           line-height: 1.7;
         }
 
+        /* Tighten spacing on small screens and respect reduced-motion settings. */
         @media (max-width: 575.98px) {
           #home-content {
             padding-top: 28px;
@@ -244,6 +248,7 @@
         }
       </style>
 
+      <!-- Introduction, skill cards, featured projects, and contact details. -->
       <div id="home-content">
         <section class="home-hero" aria-labelledby="home-title">
           <p class="eyebrow">WELCOME — THIS IS MY SPACE ON THE WEB</p>
@@ -259,6 +264,7 @@
           </p>
         </section>
 
+        <!-- Skills are displayed in a responsive Bootstrap grid. -->
         <section class="mt-5" aria-labelledby="skills-title">
           <div class="mb-4">
             <p class="eyebrow">TOOLS I’M LEARNING</p>
@@ -339,6 +345,7 @@
           </div>
         </section>
 
+        <!-- Project cards link to the site's portfolio and fitness pages. -->
         <section class="mt-5" aria-labelledby="projects-title">
           <div class="mb-4">
             <p class="eyebrow">A FEW THINGS I’M BUILDING</p>
@@ -368,6 +375,7 @@
           </div>
         </section>
 
+        <!-- Simple contact invitation. -->
         <section class="contact-panel mt-5" id="contact" aria-labelledby="contact-title">
           <p class="eyebrow">LET’S CONNECT</p>
           <h2 class="section-heading" id="contact-title">Have an idea in mind?</h2>
@@ -377,6 +385,7 @@
           </p>
         </section>
       </div>
+      <!-- Reveal homepage content on scroll when motion is enabled. -->
       <script>
         (() => {
           const homeContent = document.getElementById("home-content");

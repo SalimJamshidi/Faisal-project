@@ -1,68 +1,7 @@
+// Shared ExerciseDB endpoint used by the exercise search and plan pages.
 const API_BASE = "https://oss.exercisedb.dev/api/v1";
 
-async function getAllExercises() {
-  console.log("🔄 Fetching exercises...");
-
-  try {
-    const response = await fetch(`${API_BASE}/exercises`);
-
-    if (!response.ok) {
-      throw new Error("Something went wrong");
-    }
-
-    const data = await response.json();
-console.log("📦 Full data:", data);
-
-// Make sure exercises is an array
-const exercises = data.data || [];
-
-console.log("✅ Got exercises:", exercises);
-
-exercises.slice(0, 5).forEach(ex => {
-  console.log("💪 Exercise:", ex.name);
-});
-
-
-  } catch (error) {
-    console.log("❌ Error:", error.message);
-  }
-}
-
-// Run when page loads
-document.addEventListener('DOMContentLoaded', getAllExercises);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Add shared page animations and workout-card interactions after the DOM is ready.
 $(function () {
   // Respect reduced-motion preferences before starting animations.
   const prefersReducedMotion = window
@@ -213,48 +152,7 @@ $(function () {
 });
 
 
-// Fetch and display exercises from the API
-
-async function showExercisesOnPage() {
-  const list = document.getElementById('exercisesList');
-  
-  try {
-    const response = await fetch(`${API_BASE}/exercises`);
-    const data = await response.json();
-    const exercises = data.data || [];
-    
-    list.innerHTML = "";
-    
-    exercises.forEach(ex => {
-      const card = document.createElement('div');
-      card.className = 'exercise-card';
-      card.innerHTML = `
-        <h3>${ex.name}</h3>
-        <p><strong>Target:</strong> ${ex.targetMuscles.join(', ')}</p>
-        <p><strong>Equipment:</strong> ${ex.equipments.join(', ')}</p>
-        <img src="${ex.gifUrl}" alt="${ex.name}" loading="lazy">
-      `;
-      list.appendChild(card);
-    });
-    
-  } catch (error) {
-    list.innerHTML = `<p>Couldn't load exercises.</p>`;
-    console.log("Error:", error);
-  }
-}
-
-document.addEventListener('DOMContentLoaded', showExercisesOnPage);
-
-
-
-
-
-
-// ==========================================
-// 💪 ALPHA FEMALE — Legs & Core Exercises + Search
-// ==========================================
-
-// 🔍 Search Exercises
+// Search the exercise API by the text entered on the women’s plan page.
 async function searchExercises(searchTerm) {
   try {
     const res = await fetch(`${API_BASE}/exercises/search?search=${encodeURIComponent(searchTerm)}&limit=12`);
@@ -266,7 +164,7 @@ async function searchExercises(searchTerm) {
   }
 }
 
-// 🦾 Get Exercises by Body Part
+// Load a limited set of exercises for one or more requested body parts.
 async function getByBodyPart(bodyPart) {
   try {
     const res = await fetch(`${API_BASE}/exercises/bodyparts?bodyParts=${bodyPart}&limit=6`);
@@ -278,7 +176,7 @@ async function getByBodyPart(bodyPart) {
   }
 }
 
-// 🖥️ Display Exercises
+// Render exercises in the requested plan-page container.
 function displayExercises(exercises, containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -306,7 +204,7 @@ function displayExercises(exercises, containerId) {
   });
 }
 
-// 🔎 Run Search
+// Handle the women’s plan search form.
 async function doSearch() {
   const input = document.getElementById('exercise-search');
   if (!input) return;
@@ -318,7 +216,7 @@ async function doSearch() {
   displayExercises(results, "female-exercises");
 }
 
-// 🚀 Load on Page Ready
+// Populate the women’s plan only when its exercise container is present.
 document.addEventListener("DOMContentLoaded", async () => {
   if (document.getElementById("female-exercises")) {
     const legs = await getByBodyPart("legs");
