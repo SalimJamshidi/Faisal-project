@@ -37,7 +37,7 @@
           --home-muted: #a7b0a4;
           position: relative;
           z-index: 1;
-          padding: 46px 0 72px;
+          padding: clamp(28px, 5vw, 46px) 0 clamp(48px, 7vw, 72px);
         }
 
         .home-background {
@@ -111,33 +111,32 @@
         #home-content .home-hero {
           position: relative;
           overflow: hidden;
-          padding: clamp(36px, 7vw, 78px);
-          border: 1px solid rgb(255 255 255 / 10%);
-          background:
-            radial-gradient(ellipse at 92% 8%, rgb(194 243 107 / 14%), transparent 34%),
-            linear-gradient(135deg, rgb(26 36 28 / 74%), rgb(18 26 20 / 78%) 74%);
-          box-shadow: 0 18px 48px rgb(0 0 0 / 14%);
+          padding: clamp(22px, 6vw, 78px);
+          border: 1px solid rgb(194 243 107 / 30%);
+          border-radius: 8px;
+          background: linear-gradient(145deg, rgb(3 8 4 / 82%), rgb(8 14 9 / 84%));
+          box-shadow: 0 10px 24px rgb(0 0 0 / 10%);
           transition: border-color 220ms ease, box-shadow 220ms ease;
         }
 
         #home-content .home-hero:hover {
-          border-color: rgb(194 243 107 / 24%);
-          box-shadow: 0 22px 54px rgb(0 0 0 / 22%);
+          border-color: rgb(194 243 107 / 68%);
+          box-shadow: 0 16px 30px rgb(0 0 0 / 22%);
         }
 
         #home-content .eyebrow {
           margin: 0 0 18px;
           color: var(--home-accent);
-          font-size: 11px;
+          font-size: clamp(9px, 2.5vw, 11px);
           font-weight: 700;
-          letter-spacing: 0.18em;
+          letter-spacing: clamp(0.1em, calc(0.12em + 0.15vw), 0.18em);
         }
 
         #home-content h1 {
           max-width: 760px;
           margin: 0;
-          color: #f4f3ec;
-          font-size: clamp(40px, 7vw, 74px);
+          color: var(--home-accent);
+          font-size: clamp(32px, 7vw, 74px);
           font-weight: 750;
           letter-spacing: -0.065em;
           line-height: 1.02;
@@ -148,9 +147,9 @@
         }
 
         #home-content .home-roles {
-          margin: 22px 0 0;
-          color: #f4f3ec;
-          font-size: clamp(15px, 2vw, 19px);
+          margin: clamp(16px, 3vw, 22px) 0 0;
+          color: var(--home-accent);
+          font-size: clamp(14px, 2vw, 19px);
           font-weight: 600;
           line-height: 1.8;
         }
@@ -162,9 +161,9 @@
 
         #home-content .hero-copy {
           max-width: 530px;
-          margin: 18px 0 0;
-          color: var(--home-muted);
-          font-size: 16px;
+          margin: clamp(14px, 2.5vw, 18px) 0 0;
+          color: #b7c9a9;
+          font-size: clamp(14px, 1.6vw, 16px);
           line-height: 1.75;
         }
 
@@ -195,7 +194,7 @@
         }
 
         #home-content .skill-card {
-          padding: 21px 18px;
+          padding: clamp(15px, 2.5vw, 21px) clamp(13px, 2.2vw, 18px);
         }
 
         #home-content .skill-card:hover {
@@ -213,9 +212,9 @@
         }
 
         #home-content .skill-card h3 {
-          margin: 17px 0 7px;
+          margin: clamp(12px, 2vw, 17px) 0 7px;
           color: var(--home-accent);
-          font-size: 18px;
+          font-size: clamp(16px, 2vw, 18px);
           font-weight: 700;
         }
 
@@ -223,16 +222,16 @@
         #home-content .project-card p {
           margin: 0;
           color: #b7c9a9;
-          font-size: 14px;
+          font-size: clamp(13px, 1.7vw, 14px);
           line-height: 1.65;
         }
 
         #home-content .project-card {
           display: flex;
-          min-height: 225px;
+          min-height: clamp(190px, 32vw, 225px);
           flex-direction: column;
           justify-content: space-between;
-          padding: 27px;
+          padding: clamp(20px, 4vw, 27px);
           text-decoration: none;
         }
 
@@ -249,9 +248,9 @@
         }
 
         #home-content .project-card h3 {
-          margin: 13px 0 9px;
+          margin: clamp(10px, 2vw, 13px) 0 9px;
           color: var(--home-accent);
-          font-size: 24px;
+          font-size: clamp(21px, 3vw, 24px);
           font-weight: 700;
           letter-spacing: -0.035em;
         }
@@ -264,7 +263,7 @@
         }
 
         #home-content .contact-panel {
-          padding: clamp(26px, 5vw, 42px);
+          padding: clamp(20px, 5vw, 42px);
           border: 1px solid rgb(194 243 107 / 28%);
           background: linear-gradient(120deg, rgb(194 243 107 / 8%), rgb(26 36 28 / 76%));
         }
@@ -273,17 +272,42 @@
           max-width: 570px;
           margin: 12px 0 0;
           color: var(--home-muted);
+          font-size: clamp(14px, 1.7vw, 16px);
           line-height: 1.7;
         }
 
         /* Tighten spacing on small screens and respect reduced-motion settings. */
         @media (max-width: 575.98px) {
           #home-content {
-            padding-top: 28px;
+            padding-top: 24px;
+          }
+
+          #home-content > section.mt-5 {
+            margin-top: 2rem !important;
+          }
+
+          #home-content .home-background-credit {
+            right: 10px;
+            bottom: max(10px, env(safe-area-inset-bottom));
+            max-width: calc(100vw - 20px);
+            padding: 6px 8px;
+            font-size: 10px;
+          }
+
+          #home-content .skill-number,
+          #home-content .project-kicker {
+            font-size: 9px;
+            letter-spacing: 0.1em;
           }
 
           #home-content .home-roles span {
             padding: 0 3px;
+          }
+        }
+
+        @media (max-width: 380px) {
+          #home-content .row.row-cols-2 > .col {
+            width: 100%;
           }
         }
 
