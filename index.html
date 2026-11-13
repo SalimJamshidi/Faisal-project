@@ -35,60 +35,7 @@
         #home-content {
           --home-accent: #c2f36b;
           --home-muted: #a7b0a4;
-          position: relative;
-          z-index: 1;
-          padding: clamp(28px, 5vw, 46px) 0 clamp(48px, 7vw, 72px);
-        }
-
-        .home-background {
-          position: fixed;
-          z-index: -1;
-          inset: 0;
-          overflow: hidden;
-          background: #101711;
-          pointer-events: none;
-        }
-
-        .home-background::after {
-          position: absolute;
-          inset: 0;
-          background:
-            linear-gradient(180deg, rgb(16 23 17 / 24%), rgb(16 23 17 / 42%)),
-            radial-gradient(ellipse at 50% 20%, transparent, rgb(8 12 9 / 28%));
-          content: "";
-        }
-
-        .home-background iframe {
-          display: block;
-          width: 100%;
-          height: 100%;
-          border: 0;
-          opacity: 0.9;
-        }
-
-        .home-background-credit {
-          position: fixed;
-          z-index: 2;
-          right: 16px;
-          bottom: 12px;
-          margin: 0;
-          padding: 7px 10px;
-          border: 1px solid rgb(255 255 255 / 12%);
-          background: rgb(16 23 17 / 82%);
-          color: #a7b0a4;
-          font-size: 11px;
-          line-height: 1.5;
-        }
-
-        .home-background-credit a {
-          color: #c2f36b;
-          font-weight: 700;
-          text-decoration: none;
-        }
-
-        .home-background-credit a:hover,
-        .home-background-credit a:focus-visible {
-          text-decoration: underline;
+          padding: 46px 0 72px;
         }
 
         #home-content .home-hero,
@@ -111,32 +58,33 @@
         #home-content .home-hero {
           position: relative;
           overflow: hidden;
-          padding: clamp(22px, 6vw, 78px);
-          border: 1px solid rgb(194 243 107 / 30%);
-          border-radius: 8px;
-          background: transparent;
-          box-shadow: 0 10px 24px rgb(0 0 0 / 10%);
+          padding: clamp(36px, 7vw, 78px);
+          border: 1px solid rgb(255 255 255 / 10%);
+          background:
+            radial-gradient(ellipse at 92% 8%, rgb(194 243 107 / 14%), transparent 34%),
+            linear-gradient(135deg, #1a241c, #121a14 74%);
+          box-shadow: 0 18px 48px rgb(0 0 0 / 14%);
           transition: border-color 220ms ease, box-shadow 220ms ease;
         }
 
         #home-content .home-hero:hover {
-          border-color: rgb(194 243 107 / 68%);
-          box-shadow: 0 16px 30px rgb(0 0 0 / 22%);
+          border-color: rgb(194 243 107 / 24%);
+          box-shadow: 0 22px 54px rgb(0 0 0 / 22%);
         }
 
         #home-content .eyebrow {
           margin: 0 0 18px;
           color: var(--home-accent);
-          font-size: clamp(9px, 2.5vw, 11px);
+          font-size: 11px;
           font-weight: 700;
-          letter-spacing: clamp(0.1em, calc(0.12em + 0.15vw), 0.18em);
+          letter-spacing: 0.18em;
         }
 
         #home-content h1 {
           max-width: 760px;
           margin: 0;
-          color: var(--home-accent);
-          font-size: clamp(32px, 7vw, 74px);
+          color: #f4f3ec;
+          font-size: clamp(40px, 7vw, 74px);
           font-weight: 750;
           letter-spacing: -0.065em;
           line-height: 1.02;
@@ -147,9 +95,9 @@
         }
 
         #home-content .home-roles {
-          margin: clamp(16px, 3vw, 22px) 0 0;
-          color: var(--home-accent);
-          font-size: clamp(14px, 2vw, 19px);
+          margin: 22px 0 0;
+          color: #f4f3ec;
+          font-size: clamp(15px, 2vw, 19px);
           font-weight: 600;
           line-height: 1.8;
         }
@@ -161,9 +109,9 @@
 
         #home-content .hero-copy {
           max-width: 530px;
-          margin: clamp(14px, 2.5vw, 18px) 0 0;
-          color: #b7c9a9;
-          font-size: clamp(14px, 1.6vw, 16px);
+          margin: 18px 0 0;
+          color: var(--home-muted);
+          font-size: 16px;
           line-height: 1.75;
         }
 
@@ -185,20 +133,20 @@
         #home-content .skill-card,
         #home-content .project-card {
           height: 100%;
-          border: 1px solid rgb(194 243 107 / 30%);
-          border-radius: 8px;
-          background: transparent;
-          color: var(--home-accent);
+          border: 1px solid rgb(255 255 255 / 9%);
+          border-radius: 0;
+          background: linear-gradient(145deg, #1c271f, #151d17);
+          color: #f4f3ec;
           box-shadow: 0 10px 24px rgb(0 0 0 / 10%);
           transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
         }
 
         #home-content .skill-card {
-          padding: clamp(15px, 2.5vw, 21px) clamp(13px, 2.2vw, 18px);
+          padding: 21px 18px;
         }
 
         #home-content .skill-card:hover {
-          border-color: rgb(194 243 107 / 68%);
+          border-color: rgb(194 243 107 / 42%);
           box-shadow: 0 16px 30px rgb(0 0 0 / 22%);
           transform: translateY(-4px);
         }
@@ -212,26 +160,26 @@
         }
 
         #home-content .skill-card h3 {
-          margin: clamp(12px, 2vw, 17px) 0 7px;
-          color: var(--home-accent);
-          font-size: clamp(16px, 2vw, 18px);
+          margin: 17px 0 7px;
+          color: #f4f3ec;
+          font-size: 18px;
           font-weight: 700;
         }
 
         #home-content .skill-card p,
         #home-content .project-card p {
           margin: 0;
-          color: #b7c9a9;
-          font-size: clamp(13px, 1.7vw, 14px);
+          color: var(--home-muted);
+          font-size: 14px;
           line-height: 1.65;
         }
 
         #home-content .project-card {
           display: flex;
-          min-height: clamp(190px, 32vw, 225px);
+          min-height: 225px;
           flex-direction: column;
           justify-content: space-between;
-          padding: clamp(20px, 4vw, 27px);
+          padding: 27px;
           text-decoration: none;
         }
 
@@ -248,66 +196,41 @@
         }
 
         #home-content .project-card h3 {
-          margin: clamp(10px, 2vw, 13px) 0 9px;
-          color: var(--home-accent);
-          font-size: clamp(21px, 3vw, 24px);
+          margin: 13px 0 9px;
+          color: #f4f3ec;
+          font-size: 24px;
           font-weight: 700;
           letter-spacing: -0.035em;
         }
 
         #home-content .project-link {
           margin-top: 24px;
-          color: #d1f99a;
+          color: var(--home-accent);
           font-size: 13px;
           font-weight: 700;
         }
 
         #home-content .contact-panel {
-          padding: clamp(20px, 5vw, 42px);
+          padding: clamp(26px, 5vw, 42px);
           border: 1px solid rgb(194 243 107 / 28%);
-          background: transparent;
+          background: linear-gradient(120deg, rgb(194 243 107 / 8%), rgb(26 36 28 / 72%));
         }
 
         #home-content .contact-panel p {
           max-width: 570px;
           margin: 12px 0 0;
           color: var(--home-muted);
-          font-size: clamp(14px, 1.7vw, 16px);
           line-height: 1.7;
         }
 
         /* Tighten spacing on small screens and respect reduced-motion settings. */
         @media (max-width: 575.98px) {
           #home-content {
-            padding-top: 24px;
-          }
-
-          #home-content > section.mt-5 {
-            margin-top: 2rem !important;
-          }
-
-          #home-content .home-background-credit {
-            right: 10px;
-            bottom: max(10px, env(safe-area-inset-bottom));
-            max-width: calc(100vw - 20px);
-            padding: 6px 8px;
-            font-size: 10px;
-          }
-
-          #home-content .skill-number,
-          #home-content .project-kicker {
-            font-size: 9px;
-            letter-spacing: 0.1em;
+            padding-top: 28px;
           }
 
           #home-content .home-roles span {
             padding: 0 3px;
-          }
-        }
-
-        @media (max-width: 380px) {
-          #home-content .row.row-cols-2 > .col {
-            width: 100%;
           }
         }
 
@@ -327,21 +250,6 @@
 
       <!-- Introduction, skill cards, featured projects, and contact details. -->
       <div id="home-content">
-        <div class="home-background" aria-hidden="true">
-          <iframe
-            title="Decorative space boi 3D model by silvercrow101 on Sketchfab"
-            src="https://sketchfab.com/models/f6a8c6a6727b4f2cb020c8b50bb2ee60/embed?dnt=1&autostart=1&autospin=0.2&ui_theme=dark"
-            allow="autoplay; fullscreen; xr-spatial-tracking"
-            loading="eager"
-            tabindex="-1">
-          </iframe>
-        </div>
-        <p class="home-background-credit">
-          <a href="https://sketchfab.com/3d-models/space-boi-f6a8c6a6727b4f2cb020c8b50bb2ee60" target="_blank" rel="nofollow noopener noreferrer">space boi</a>
-          by <a href="https://sketchfab.com/silvercrow101" target="_blank" rel="nofollow noopener noreferrer">silvercrow101</a>
-          on <a href="https://sketchfab.com" target="_blank" rel="nofollow noopener noreferrer">Sketchfab</a>
-        </p>
-
         <section class="home-hero" aria-labelledby="home-title">
           <p class="eyebrow">WELCOME — THIS IS MY SPACE ON THE WEB</p>
           <h1 id="home-title">Hi, I'm <span>Salim Jamshidi</span></h1>

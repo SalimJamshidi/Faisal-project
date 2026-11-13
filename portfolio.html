@@ -7,6 +7,84 @@
     <meta name="theme-color" content="#101711">
     <title>Portfolio | Salim Jamshidi</title>
     <link rel="stylesheet" href="assets/style.css">
+    <style>
+      .portfolio-background {
+        position: fixed;
+        z-index: 0;
+        inset: 0;
+        overflow: hidden;
+        background: #101711;
+        pointer-events: none;
+      }
+
+      .portfolio-background::after {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgb(16 23 17 / 24%), rgb(16 23 17 / 42%)),
+          radial-gradient(ellipse at 50% 20%, transparent, rgb(8 12 9 / 28%));
+        content: "";
+      }
+
+      .portfolio-background iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        opacity: 0.9;
+      }
+
+      .portfolio-background-credit {
+        position: fixed;
+        z-index: 2;
+        right: 16px;
+        bottom: 12px;
+        margin: 0;
+        padding: 7px 10px;
+        border: 1px solid rgb(255 255 255 / 12%);
+        background: rgb(16 23 17 / 82%);
+        color: #a7b0a4;
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      .portfolio-background-credit a {
+        color: #c2f36b;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .portfolio-background-credit a:hover,
+      .portfolio-background-credit a:focus-visible {
+        text-decoration: underline;
+      }
+
+      .portfolio-content {
+        position: relative;
+        z-index: 1;
+        min-height: calc(100vh - 120px);
+        pointer-events: none;
+      }
+
+      @media (max-width: 575.98px) {
+        .portfolio-background iframe {
+          position: absolute;
+          top: 54%;
+          left: 50%;
+          width: min(60vw, 106.67vh);
+          height: min(33.75vw, 60vh);
+          transform: translate(-50%, -50%);
+        }
+
+        .portfolio-background-credit {
+          right: 10px;
+          bottom: max(10px, env(safe-area-inset-bottom));
+          max-width: calc(100vw - 20px);
+          padding: 6px 8px;
+          font-size: 10px;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Shared brand and navigation links. -->
@@ -23,7 +101,21 @@
     </header>
 
     <!-- Portfolio page content. -->
-    <main class="page-content"></main>
+    <div class="portfolio-background" aria-hidden="true">
+      <iframe
+        title="Earth hologram by Meee on Sketchfab"
+        src="https://sketchfab.com/models/87072288fb234226b9a3f02ae674a310/embed?autostart=1&autospin=0.2&ui_theme=dark"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        loading="eager"
+        tabindex="-1">
+      </iframe>
+    </div>
+    <p class="portfolio-background-credit">
+      <a href="https://sketchfab.com/3d-models/earth-hologram-87072288fb234226b9a3f02ae674a310" target="_blank" rel="nofollow noopener noreferrer">Earth hologram</a>
+      by <a href="https://sketchfab.com/Meee" target="_blank" rel="nofollow noopener noreferrer">Meee</a>
+      on <a href="https://sketchfab.com" target="_blank" rel="nofollow noopener noreferrer">Sketchfab</a>
+    </p>
+    <main class="page-content portfolio-content"></main>
     <!-- Load jQuery before the shared page interactions. -->
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
     <script src="js/script.js"></script>
