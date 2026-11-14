@@ -424,6 +424,26 @@ async function loadExercises() {
 // Run when page loads
 document.addEventListener("DOMContentLoaded", loadExercises);
 
+// Reveal the exercise section when the visitor starts checkout and after returning.
+document.addEventListener("DOMContentLoaded", () => {
+    const checkoutPanel = document.querySelector(".access-panel");
+    const checkoutLink = checkoutPanel?.querySelector(".access-button");
+    const exercisesSection = document.getElementById("exercises-section");
+
+    if (!checkoutPanel || !checkoutLink || !exercisesSection) return;
+
+    const revealExercises = () => {
+        checkoutPanel.hidden = true;
+        exercisesSection.hidden = false;
+        sessionStorage.setItem("menPlanExercisesVisible", "true");
+    };
+
+    if (sessionStorage.getItem("menPlanExercisesVisible") === "true") {
+        revealExercises();
+    }
+
+    checkoutLink.addEventListener("click", revealExercises);
+});
 
 
 
