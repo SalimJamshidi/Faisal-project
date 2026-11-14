@@ -506,6 +506,107 @@ a {
   font-weight: 600;
 }
 
+/* Fitness news cards on the portfolio page. */
+.news-section {
+  --news-accent: #78baff;
+  --news-muted: #aab8ca;
+
+  position: relative;
+  z-index: 1;
+  margin: 48px 0 72px;
+  pointer-events: auto;
+}
+
+.news-section h2 {
+  margin: 0 0 24px;
+  color: var(--text);
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+
+#news-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 18px;
+  pointer-events: auto;
+}
+
+.news-card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 235px;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+  border: 1px solid rgb(255 255 255 / 9%);
+  border-radius: 14px;
+  background: var(--panel);
+  box-shadow: 0 16px 38px rgb(0 0 0 / 20%);
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  border-color: rgb(120 186 255 / 48%);
+  box-shadow: 0 22px 44px rgb(0 0 0 / 30%), 0 0 22px rgb(80 155 235 / 10%);
+}
+
+.news-card h4 {
+  margin: 0;
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.news-card p {
+  margin: 12px 0 20px;
+  color: var(--news-muted);
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.news-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: auto;
+  color: var(--news-accent);
+  font-size: 13px;
+  font-weight: 700;
+  transition: color 180ms ease, gap 180ms ease;
+}
+
+.news-link:hover,
+.news-link:focus-visible {
+  gap: 11px;
+  color: #b6d9ff;
+}
+
+.news-link:focus-visible {
+  border-radius: 3px;
+  outline: 2px solid var(--news-accent);
+  outline-offset: 4px;
+}
+
+#news-container > p {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 22px 24px;
+  border: 1px solid rgb(120 186 255 / 14%);
+  border-radius: 12px;
+  background: linear-gradient(145deg, #1d2b3c, #141e2b 75%);
+  color: var(--news-muted);
+  line-height: 1.6;
+}
+
 /* Stack content and adjust spacing on narrow screens. */
 @media (max-width: 640px) {
   .intro:not(.gallery-intro) {
@@ -551,6 +652,20 @@ a {
   .gallery-item,
   .gallery-item img {
     min-height: 390px;
+  }
+
+  .news-section {
+    margin: 36px 0 52px;
+  }
+
+  #news-container {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .news-card {
+    min-height: 210px;
+    padding: 21px;
   }
 }
 
