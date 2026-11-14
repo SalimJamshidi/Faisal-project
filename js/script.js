@@ -292,6 +292,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 async function loadFitnessNews() {
     // Find the element that will hold the loading message and news cards.
     const Container = document.getElementById("news-container");
+    if (!Container) return;
     
     // Show an initial loading message when the news section exists.
     if (Container) {
@@ -362,3 +363,67 @@ $("#news-container").on("click", ".news-card", function (event) {
 
 // Start loading news when this script runs.
 loadFitnessNews();
+
+
+
+
+
+
+
+async function loadExercises() {
+    const exerciseContainer = document.getElementById("exercise-container");
+    
+    // ✅ Safety check — only run if element exists on page
+    if (!exerciseContainer) return;
+    
+    // Show loading message
+    exerciseContainer.innerHTML = '<p class="loading-text">Loading exercises...</p>';
+
+    try {
+        const response = await fetch("https://api.api-ninjas.com/v1/exercises?muscle=biceps", {
+            method: "GET",
+            headers: {
+                "X-Api-Key": "tqINgtj3Dz3SIS9iaPsqH1QzPF3yWp3InUe4NTTe"
+            }
+        });
+
+        // Handle HTTP errors
+        if (!response.ok) {
+            throw new Error("HTTP Error: " + response.status);
+        }
+
+        const data = await response.json();
+        console.log("Exercises data:", data);
+
+        // Display the exercises
+        if (data && data.length > 0) {
+            exerciseContainer.innerHTML = "";
+            
+            data.forEach(ex => {
+                exerciseContainer.innerHTML += `
+                    <div class="exercise-card">
+                        <h4>${ex.name}</h4>
+                        <p><strong>Muscle:</strong> ${ex.muscle}</p>
+                        <p><strong>Type:</strong> ${ex.type}</p>
+                        <p><strong>Difficulty:</strong> ${ex.difficulty}</p>
+                        <p><strong>Equipment:</strong> ${ex.equipment || "None needed"}</p>
+                        <p><strong>Instructions:</strong> ${ex.instructions}</p>
+                    </div>
+                `;
+            });
+        } else {
+            exerciseContainer.innerHTML = '<p>No exercises found.</p>';
+        }
+
+    } catch (error) {
+        console.log("Error loading exercises:", error);
+        exerciseContainer.innerHTML = '<p>Could not load exercises. Please try again later.</p>';
+    }
+}
+
+// Run when page loads
+document.addEventListener("DOMContentLoaded", loadExercises);
+
+
+
+
