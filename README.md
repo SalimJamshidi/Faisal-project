@@ -69,12 +69,12 @@ I'm not done yet. Eventually I'll add a Python backend so people can save their 
 ---
 ## laptop Wireframe
 Below is the laptop version home page how the content look like 
-![large screen wireframe] (./assets/images/large.scree.jpeg)
+![large screen wireframe] (.assets/images/large.scree.jpeg)
 
 ## mobile wireframe 
 
 below is hte mobile version homae page how the content look 
-![mobile screen wireframe] (./assets/images/mobile.wire.jpeg)
+![mobile screen wireframe] (.assets/images/mobile.wire.jpeg)
 
 ## How to Use
 1. Open index.html in your browser
