@@ -69,12 +69,12 @@ I'm not done yet. Eventually I'll add a Python backend so people can save their 
 ---
 ## laptop Wireframe
 Below is the laptop version home page how the content look like 
-![large screen wireframe] (.assets/images/large.scree.jpeg)
+![Desktop fitness website wireframe showing a navy-blue home page header, a large strength and fitness feature section, and two workout plan cards. Visible text includes SALIM JAMSHIDI, Home, News, Fitness, YOUR NEXT CHAPTER STARTS HERE, Build your strength, Here we help you escape the matrix, liberate yourself, and Rise as an Alpha woman or Alpha male, Gallery, About me, Alpha Women workout plan, Alpha Males workout plan, Strength, Focus, Progress, and Click to start your journey. The energetic, high-contrast layout uses bright lime accents and motivational fitness imagery.](./assets/images/large.scree.jpeg)
 
 ## mobile wireframe 
 
 below is hte mobile version homae page how the content look 
-![mobile screen wireframe] (.assets/images/mobile.wire.jpeg)
+![Mobile fitness website wireframe on a dark blue phone-shaped layout. It shows the logo and name SALIM JAMSHIDI, Home, News, and Fitness navigation, a centered heading and two buttons, and Alpha Women and Alpha Males workout plan cards with fitness silhouettes. Visible text includes YOUR NEXT CHAPTER STARTS HERE, Build your strength, Gallery, About me, and Click to start your journey. The clean navy design with bright lime accents feels energetic and motivating.](./assets/images/mobile.wire.jpeg)
 
 ## How to Use
 1. Open index.html in your browser
