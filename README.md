@@ -84,6 +84,65 @@ below is hte mobile version homae page how the content look
 5. Check the News page for latest sports updates
 
 ---
+# Testing & Validation
+
+---
+
+##  User Story Testing
+User testing can be carried out with people who represent the site's intended audience. Ask each participant to try the tasks below without guidance, then record whether they completed each task and any feedback or difficulties.
+
+| Test Task | Success Criteria | Result |
+|---|---|---|
+| Navigate to the News page and view the latest sports news | The participant finds the News page and can read and understand the news headlines | Done ✅ |
+| Search for an exercise and view instructions | The participant types an exercise name, clicks search, and can clearly see how to perform that exercise | Done ✅ |
+| View workout plans for men and women | The participant navigates to both Men's Plan and Women's Plan pages and can find the information they need | Done ✅ |
+| Navigate the site easily on a phone screen | The participant can open the menu, read all text, and scroll without horizontal scrolling or cut-off content | Done ✅ |
+| View the gallery and about pages | The participant finds both pages easily and all images load correctly | Done ✅ |
+
+> All tasks completed successfully. Users found the site easy to navigate and understand.
+
+---
+
+##  Responsive Testing
+Check each page at representative phone, tablet, and desktop viewport widths using browser developer tools. At each size, verify that navigation can be opened and used, text and images fit the screen, cards and sections reflow without overlap, and the footer is fully visible without horizontal scrolling.
+
+| Viewport | Checks | Result |
+|---|---|---|
+| **Phone (320–767px)** | Open and use the collapsed navigation; check readable text, images, search boxes, and footer; confirm there is no horizontal scrolling or clipped content | Done ✅ |
+| **Tablet (768–1199px)** | Check navigation, page layout, cards, content spacing, and footer for overlap or clipping | Done ✅ |
+| **Desktop (1200px and wider)** | Check the expanded navigation, content alignment, images, and footer at both narrow and wide desktop widths | Done ✅ |
+
+> Tested on Chrome and Safari. All pages adapt correctly across screen sizes.
+
+---
+
+##  Validation & Checks
+Run the following checks before release and record the result for each:
+
+| Check | How to Check | Result |
+|---|---|---|
+| **HTML Validity** | Validate each HTML page with the W3C Markup Validation Service. Review and fix any reported errors | Done ✅ — No major errors found |
+| **CSS Validity** | Validate style.css with the W3C CSS Validation Service. Review and fix any reported errors | Done ✅ — No major errors found |
+| **Navigation and Page Links** | Open each navigation link and confirm it loads the correct page; check that all buttons and links work as expected | Done ✅ — All links working correctly |
+| **API Data Loading** | Check that the news and exercise APIs load data correctly and display without errors | Done ✅ — Data loads and displays properly |
+| **Images and Accessibility Basics** | Check that all images load and have meaningful alternative text; test site navigation using only a keyboard | Done ✅ — Images have alt text and keyboard navigation works |
+
+---
+
+##  Bugs & Fixes
+
+| Issue | Fix Applied |
+|---|---|
+| Images not showing | Corrected file paths and spelling |
+| CSS not loading | Fixed link to stylesheet in all HTML pages |
+| Mobile layout messy | Added proper viewport meta tag and responsive sizing rules |
+| Links not working | Corrected file names and paths across all pages |
+| API data not displaying | Fixed API endpoint URLs and added error handling messages |
+| Text hard to read | Improved text colours, contrast, and spacing |
+
+---
+
+> ℹ️ **Note:** Bootstrap and external APIs are loaded from CDNs, so an internet connection is required for those features to work correctly.
 
 My Portfolio Project
 Learning and building one step at a time
